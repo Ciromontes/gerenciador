@@ -9,4 +9,14 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>NuevaEmpresaServlet</display-name>
+    <servlet-name>NuevaEmpresaServlet</servlet-name>
+    <servlet-class>com.alura.gerenciador.servlet.NuevaEmpresaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NuevaEmpresaServlet</servlet-name>
+    <url-pattern>/nuevaEmpresa</url-pattern>
+  </servlet-mapping>
 </web-app>

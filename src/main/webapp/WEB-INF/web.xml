@@ -9,7 +9,6 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-<<<<<<< HEAD
   <servlet>
     <description></description>
     <display-name>NuevaEmpresaServlet</display-name>
@@ -30,6 +29,4 @@
     <servlet-name>ListaEmpresasServlet</servlet-name>
     <url-pattern>/listaEmpresas</url-pattern>
   </servlet-mapping>
-=======
->>>>>>> 2f56691f7ac0f8f6c8310eb0c8506bda4593f18b
 </web-app>

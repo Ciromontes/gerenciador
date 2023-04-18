@@ -1,3 +1,9 @@
+<%
+	String empresa = "Alura";
+	System.out.println(empresa);
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>

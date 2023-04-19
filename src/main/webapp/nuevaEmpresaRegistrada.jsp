@@ -1,12 +1,17 @@
-<%
-	String empresa = (String)request.getAttribute("empresa");
-	System.out.println(empresa);
-%>
-
-
-
-<html><body>
+ <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+  <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<html>
+	<body>
 	
-	Empresa <%= empresa%> registrada!
+		<c:if test="${not empty empresa }">
+			Empresa ${ empresa } registrada!
+		</c:if>
+		<c:if test="${ empty empresa }">
+			Ninguna empresa registrada
+		</c:if>
 	
-</body></html>
+
+	
+</body>
+
+</html>

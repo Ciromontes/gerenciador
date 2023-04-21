@@ -1,28 +1,31 @@
 package com.alura.gerenciador.servlet;
 
-import jakarta.servlet.RequestDispatcher;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class NuevaEmpresaServlet extends HttpServlet {
+public class ModificarEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("nueva empresa registrada");
+		
+		System.out.println("nueva empresa modificada");
+		
 		String nombreEmpresa = request.getParameter("nombre");
 		String paramFechaAbertura = request.getParameter("fecha");
+		String paramId = request.getParameter("id");
+		Integer id = Integer.valueOf(paramId);
 		
+		System.out.println(id);
+
 		Date fechaAbertura = null;
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -31,22 +34,13 @@ public class NuevaEmpresaServlet extends HttpServlet {
 			throw new ServletException(e);
 		}
 		
-		Empresa empresa = new Empresa();
+		DB db = new DB();;
+		
+		Empresa empresa = db.buscarEmpresaPorId(id);
 		empresa.setNombre(nombreEmpresa);
 		empresa.setFechaAbertura(fechaAbertura);
 		
-		DB baseDeDatos = new DB();
-		baseDeDatos.agregarEmpresa(empresa);
-		
 		response.sendRedirect("listaEmpresas");
-		
-		//PrintWriter out =response.getWriter();
-		//out.println("<html><body>Nueva empresa "+ nombreEmpresa + " registrada </body></html>");
-		
-		//llamar a jsp
-//		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
-//		request.setAttribute("empresa", empresa.getNombre());
-//		rd.forward(request, response);
 	}
 
 }

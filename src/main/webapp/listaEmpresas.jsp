@@ -9,18 +9,27 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-</head>
+</head>	
 <body>
+
+	<c:if test="${not empty empresa }">
+		Empresa ${ empresa } registrada! <br/>
+	</c:if>	
 	Lista de empresas <br/>
 		
 	<ul>
 		<c:forEach items = "${empresas}" var= "empresa">
 			
-			<li>${empresa.nombre }- <fmt:formatDate value="${empresa.fechaAbertura }" pattern="dd/MM/yyyy"/></li>
+			<li>
+				${empresa.nombre } - <fmt:formatDate value="${empresa.fechaAbertura }" pattern="dd/MM/yyyy"/>
+				<a href="/gerenciador/mostrarEmpresa?id=${ empresa.id }">modificar</a>
+				<a href="/gerenciador/eliminarEmpresa?id=${ empresa.id }">eliminar</a>
+			
+		    </li>
 		</c:forEach>
 	</ul>	
 		
    
 		
-		</body>
+</body>
 </html>
